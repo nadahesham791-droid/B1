@@ -1,0 +1,16 @@
+# NetBeans generated directories
+**/build/
+**/dist/
+**/nbproject/private/
+
+# Maven generated directories
+**/target/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
