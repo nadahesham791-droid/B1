@@ -13,7 +13,7 @@ public class DBConnection {
 
     private static String dbUrl = "jdbc:mysql://localhost:3306/iwish_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
     private static String dbUser = "root";
-    private static String dbPass = "root"; // common default for NetBeans / XAMPP / MySQL
+    private static String dbPass = "root123"; // common default for NetBeans / XAMPP / MySQL
 
     private static DBConnection instance;
 

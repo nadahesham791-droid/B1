@@ -175,7 +175,7 @@ public class LoginRegisterDialog extends JDialog {
         panel.add(txtRegEmail, gbc);
 
         gbc.gridy++;
-        panel.add(new JLabel("Password:"), gbc);
+        panel.add(new JLabel("Password (min 6 characters):"), gbc);
         gbc.gridy++;
         txtRegPass = new JPasswordField(20);
         txtRegPass.setPreferredSize(new Dimension(0, 32));
@@ -227,6 +227,11 @@ public class LoginRegisterDialog extends JDialog {
             return;
         }
 
+        if (pass.length() < 6) {
+            JOptionPane.showMessageDialog(this, "Password must be at least 6 characters long.", "Invalid Password", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         if (!ensureConnected()) return;
 
         Request req = new Request(ActionType.LOGIN)
@@ -255,6 +260,11 @@ public class LoginRegisterDialog extends JDialog {
 
         if (fullName.isEmpty() || user.isEmpty() || email.isEmpty() || pass.isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are required to register.", "Missing Fields", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (pass.length() < 6) {
+            JOptionPane.showMessageDialog(this, "Password must be at least 6 characters long.", "Weak Password", JOptionPane.WARNING_MESSAGE);
             return;
         }
 

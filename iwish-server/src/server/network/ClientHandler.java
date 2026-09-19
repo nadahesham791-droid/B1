@@ -83,6 +83,10 @@ public class ClientHandler implements Runnable {
                         return Response.error(action, "All registration fields are required.");
                     }
 
+                    if (p.length() < 6) {
+                        return Response.error(action, "Password must be at least 6 characters long.");
+                    }
+
                     UserDTO user = userDAO.register(u.trim(), e.trim(), p, f.trim());
                     if (user == null) {
                         return Response.error(action, "Username or Email already in use.");
@@ -100,6 +104,10 @@ public class ClientHandler implements Runnable {
 
                     if (u == null || p == null) {
                         return Response.error(action, "Username/Email and Password are required.");
+                    }
+
+                    if (p.length() < 6) {
+                        return Response.error(action, "Password must be at least 6 characters long.");
                     }
 
                     UserDTO user = userDAO.login(u.trim(), p);
